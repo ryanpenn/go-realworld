@@ -1,0 +1,49 @@
+version: "3.8"
+services:
+  mysql:
+    image: "mysql:5.7.18"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=123456"
+      - "MYSQL_DATABASE=db_realworld"
+      - "TZ=Asia/Shanghai"
+    volumes:
+      - "./mount/mysql/data:/var/lib/mysql"
+      - "./mount/mysql/conf/my.cnf:/etc/my.cnf"
+    ports:
+      - "3306:3306"
+
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
+    volumes:
+      - "./mount/redis:/data"
+
+  realworld:
+    build:
+      context: ./
+      target: runner
+    image: realworld
+    expose:
+      - "8000"
+    environment:
+      - ENV=dev
+    volumes:
+      - ./mount/app/config:/root/config
+      - ./mount/app/data:/root/data
+      - ./mount/app/resources:/root/resources
+    depends_on:
+      - mysql
+      - redis
+    working_dir: "/root/"
+    command: >
+      sh -c '
+      while ! nc -z mysql 3306;
+      do
+        echo "wait for mysql";
+        sleep 2;
+      done;
+      echo "mysql is ready!";
+      echo "start web service";
+      ./run;
+      '
