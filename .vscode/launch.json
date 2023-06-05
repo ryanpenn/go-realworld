@@ -7,12 +7,14 @@
         "name": "realworld",
         "type": "go",
         "request": "launch",
-        "mode": "debug",
+        "mode": "auto",
+        "cwd": "${workspaceRoot}",
         "program": "${workspaceRoot}/cmd/realworld/main.go",
         "env": {
             "ENV": "local"
         },
-        "args": ["server"],
+        "args": ["-c=config", "-r=resources", "-d=data"],
         "showLog": true
+        // "buildFlags": "-tags 'server'",
     }]
 }
