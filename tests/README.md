@@ -9,3 +9,5 @@ APIURL=http://localhost:3000/api ./run-api-tests.sh
 ```
 
 For more details, see [`run-api-tests.sh`](run-api-tests.sh).
+
+[endpoints](https://realworld-docs.netlify.app/docs/specs/backend-specs/endpoints/)
