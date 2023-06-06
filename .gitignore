@@ -2,3 +2,4 @@
 vendor
 debug
 .DS_Store
+go.sum
