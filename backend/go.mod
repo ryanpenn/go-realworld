@@ -8,6 +8,9 @@ require (
 	go.uber.org/zap v1.24.0
 )
 
+// sqlite3 driver without cgo
+// require github.com/ncruces/go-sqlite3 v0.20.3
+
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
 	github.com/chenzhuoyu/base64x v0.0.0-20221115062448-fe3a3abad311 // indirect
