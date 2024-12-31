@@ -6,7 +6,7 @@
         "request": "launch",
         "mode": "auto",
         "cwd": "${workspaceRoot}",
-        "program": "${workspaceRoot}/cmd/realworld/main.go",
+        "program": "${workspaceRoot}/backend/cmd/main.go",
         "env": {
             "ENV": "local"
         },

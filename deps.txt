@@ -64,3 +64,6 @@ google.golang.org/grpc
 
 snowflake
 github.com/bwmarrin/snowflake
+
+refs:
+https://juejin.cn/post/7227401803724767293
